@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "976885868393",
+    "project_id": "mastermind-hangman",
+    "storage_bucket": "mastermind-hangman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976885868393:android:3f4c26b167a6807494bff8",
+        "android_client_info": {
+          "package_name": "com.mastermind.hangman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976885868393-ec1v5tn1fgvsqfq90fmiiku10mjluo59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAefMkRONJabRzxnVA8aYvNV74FGMtyZrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976885868393-ec1v5tn1fgvsqfq90fmiiku10mjluo59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
