@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 
 class HangmanScreen extends StatefulWidget {
   const HangmanScreen(
-      {Key? key,
-      required this.choosenType,
-      required this.choosenWord,
-      required this.typeSelection})
+      {Key? key, required this.choosenType, required this.choosenWord})
       : super(key: key);
   final String choosenType;
   final String choosenWord;
-  final String typeSelection;
 
   @override
   State<HangmanScreen> createState() => _HangmanScreenState();
@@ -21,99 +17,98 @@ class _HangmanScreenState extends State<HangmanScreen> {
   int countWrongWord = 0;
   int hangmanCount = 0;
   int spaceCount = 0;
-  static int winningDecider = 0;
+  //static int winningDecider = 0;
   int score = 0;
-  static int highScore = 0;
+  // static int highScore = 0;
   List underScoreArray = [];
 
   //Data
   var hangman = ["H", "A", "N", "G", "M", "A", "N"];
 
+  List<String> alphabets = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ];
+
+  List<int> letterCheck(String char, String word) {
+    List<int> indexes = [];
+    for (int i = 0; i < word.length; i++) {
+      if (word[i].toLowerCase() == char.toLowerCase()) {
+        indexes.add(i);
+      }
+    }
+    print(indexes);
+    print(underScoreArray);
+    return indexes;
+  }
+
+  void fillGaps(String char) {
+    List<int> indexes = letterCheck(char, widget.choosenWord);
+    List newunderScoreArray = underScoreArray;
+    for (int i = 0; i < indexes.length; i++) {
+      int index = indexes[i];
+      newunderScoreArray[index] = widget.choosenWord[index];
+    }
+    setState(() {
+      underScoreArray = newunderScoreArray;
+    });
+    print(underScoreArray);
+  }
+
+  //Word Choose
+  // List<String> word = widget.choosenWord.split("");
+  // underScoreArray = List.filled(word.length, widget.choosenWord);
+
+  // for (int i = 0; i < word.length; i++) {
+  //   if (word[i] == ' ') {
+  //     underScoreArray[i] = "  ";
+  //     //spaceCount++;
+  //   } else {
+  //     underScoreArray[i] = "_ ";
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     // Type Choose
 
-    List<String> alphabets = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9"
-    ];
-
-    List<int> letterCheck(String char, String word) {
-      List<int> indexes = [];
-      for (int i = 0; i < word.length; i++) {
-        if (word[i].toLowerCase() == char.toLowerCase()) {
-          indexes.add(i);
-        }
-      }
-      print(indexes);
-      print(underScoreArray);
-      return indexes;
-    }
-
-    void fillGaps(String char) {
-      List<int> indexes = letterCheck(char, widget.choosenWord);
-      List newunderScoreArray = underScoreArray;
-      for (int i = 0; i < indexes.length; i++) {
-        int index = indexes[i];
-        newunderScoreArray[index] = widget.choosenWord[index];
-      }
-      setState(() {
-        underScoreArray = newunderScoreArray;
-      });
-      print(underScoreArray);
-    }
-
-    //Word Choose
-    List<String> word = widget.choosenWord.split("");
-    underScoreArray = List.filled(word.length, widget.choosenWord);
-    var space = ' ';
-
-    for (int i = 0; i < word.length; i++) {
-      if (word[i] == space) {
-        underScoreArray[i] = "  ";
-        spaceCount++;
-      } else {
-        underScoreArray[i] = "_ ";
-      }
-    }
-
     // Taking Input And Others
 
-    var newHangman = List.filled(hangman.length, widget.choosenWord);
+    //var newHangman = List.filled(hangman.length, widget.choosenWord);
 
     return Scaffold(
       backgroundColor: Colors.cyan,
@@ -141,7 +136,7 @@ class _HangmanScreenState extends State<HangmanScreen> {
           height: 20,
         ),
         Text(
-          widget.typeSelection,
+          widget.choosenType,
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
@@ -153,7 +148,7 @@ class _HangmanScreenState extends State<HangmanScreen> {
           height: 20,
         ),
         Text(
-          "$word",
+          widget.choosenWord,
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
@@ -174,7 +169,7 @@ class _HangmanScreenState extends State<HangmanScreen> {
         ),
         SizedBox(
           width: double.infinity,
-          height: 250.0,
+          height: 350.0,
           child: GridView.count(
             crossAxisCount: 7,
             mainAxisSpacing: 8.0,

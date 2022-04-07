@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 var types = [
@@ -769,103 +770,103 @@ var wildAnimal = [
 
 List<String> chooseRandomWord() {
   Random random = Random();
-  var typeSelection = types[random.nextInt(23)];
-  var choosenType;
-  var choosenWord;
+  String typeSelection = types[random.nextInt(23)];
+  String choosenType = "Actor";
+  String choosenWord = "Aaron Paul";
   switch (typeSelection) {
     case "Actor":
-      choosenType = actor;
-      choosenWord = choosenType[random.nextInt(60)].toUpperCase();
+      choosenType = "Actor";
+      choosenWord = actor[random.nextInt(60)].toUpperCase();
       break;
     case "Actress":
-      choosenType = actress;
-      choosenWord = choosenType[random.nextInt(60)].toUpperCase();
+      choosenType = "Actress";
+      choosenWord = actress[random.nextInt(60)].toUpperCase();
       break;
     case "Band":
-      choosenType = band;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "Band";
+      choosenWord = band[random.nextInt(20)].toUpperCase();
       break;
     case "Bird":
-      choosenType = bird;
-      choosenWord = choosenType[random.nextInt(80)].toUpperCase();
+      choosenType = "Bird";
+      choosenWord = bird[random.nextInt(80)].toUpperCase();
       break;
     case "Continent":
-      choosenType = continent;
-      choosenWord = choosenType[random.nextInt(7)].toUpperCase();
+      choosenType = "Continent";
+      choosenWord = continent[random.nextInt(7)].toUpperCase();
       break;
     case "Country":
-      choosenType = country;
-      choosenWord = choosenType[random.nextInt(100)].toUpperCase();
+      choosenType = "Country";
+      choosenWord = country[random.nextInt(100)].toUpperCase();
       break;
     case "Cricketer":
-      choosenType = cricketer;
-      choosenWord = choosenType[random.nextInt(60)].toUpperCase();
+      choosenType = "Cricketer";
+      choosenWord = cricketer[random.nextInt(60)].toUpperCase();
       break;
     case "Fish":
-      choosenType = fish;
-      choosenWord = choosenType[random.nextInt(40)].toUpperCase();
+      choosenType = "Fish";
+      choosenWord = fish[random.nextInt(40)].toUpperCase();
       break;
     case "Flower":
-      choosenType = flower;
-      choosenWord = choosenType[random.nextInt(30)].toUpperCase();
+      choosenType = "Flower";
+      choosenWord = flower[random.nextInt(30)].toUpperCase();
       break;
     case "Fruit":
-      choosenType = fruit;
-      choosenWord = choosenType[random.nextInt(30)].toUpperCase();
+      choosenType = "Fruit";
+      choosenWord = fruit[random.nextInt(30)].toUpperCase();
       break;
     case "Footballer":
-      choosenType = footballer;
-      choosenWord = choosenType[random.nextInt(25)].toUpperCase();
+      choosenType = "Footballer";
+      choosenWord = footballer[random.nextInt(25)].toUpperCase();
       break;
     case "Language":
-      choosenType = language;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "Language";
+      choosenWord = language[random.nextInt(20)].toUpperCase();
       break;
     case "Movie":
-      choosenType = movie;
-      choosenWord = choosenType[random.nextInt(30)].toUpperCase();
+      choosenType = "Movie";
+      choosenWord = movie[random.nextInt(30)].toUpperCase();
       break;
     case "Ocean":
-      choosenType = ocean;
-      choosenWord = choosenType[random.nextInt(5)].toUpperCase();
+      choosenType = "Ocean";
+      choosenWord = ocean[random.nextInt(5)].toUpperCase();
       break;
     case "Planet":
-      choosenType = planet;
-      choosenWord = choosenType[random.nextInt(8)].toUpperCase();
+      choosenType = "Planet";
+      choosenWord = planet[random.nextInt(8)].toUpperCase();
       break;
     case "Religion":
-      choosenType = religion;
-      choosenWord = choosenType[random.nextInt(6)].toUpperCase();
+      choosenType = "Religion";
+      choosenWord = religion[random.nextInt(6)].toUpperCase();
       break;
     case "River":
-      choosenType = river;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "River";
+      choosenWord = river[random.nextInt(20)].toUpperCase();
       break;
     case "Scientist":
-      choosenType = scientist;
-      choosenWord = choosenType[random.nextInt(10)].toUpperCase();
+      choosenType = "Scientist";
+      choosenWord = scientist[random.nextInt(10)].toUpperCase();
       break;
     case "Series":
-      choosenType = series;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "Series";
+      choosenWord = series[random.nextInt(20)].toUpperCase();
       break;
     case "Sport":
-      choosenType = sport;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "Sport";
+      choosenWord = sport[random.nextInt(20)].toUpperCase();
       break;
     case "Vehicle":
-      choosenType = vehicle;
-      choosenWord = choosenType[random.nextInt(15)].toUpperCase();
+      choosenType = "Vehicle";
+      choosenWord = vehicle[random.nextInt(15)].toUpperCase();
       break;
     case "Video Game":
-      choosenType = videoGame;
-      choosenWord = choosenType[random.nextInt(20)].toUpperCase();
+      choosenType = "video Game";
+      choosenWord = videoGame[random.nextInt(20)].toUpperCase();
       break;
     case "Wild Animal":
-      choosenType = wildAnimal;
-      choosenWord = choosenType[random.nextInt(15)].toUpperCase();
+      choosenType = "Aild Animal";
+      choosenWord = wildAnimal[random.nextInt(15)].toUpperCase();
       break;
     default:
   }
-  return [choosenType, choosenWord, typeSelection];
+  return [choosenType, choosenWord];
 }

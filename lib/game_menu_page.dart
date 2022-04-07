@@ -55,14 +55,13 @@ class _GameMenuState extends State<GameMenuPage> {
                             onPressed: () {
                               Fluttertoast.showToast(msg: "Let's Go");
                               List<String> choosen = chooseRandomWord();
+                              print(choosen);
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => HangmanScreen(
-                                            choosenType: choosen[0],
-                                            choosenWord: choosen[1],
-                                            typeSelection: choosen[2]
-                                          )));
+                                          choosenType: choosen[0],
+                                          choosenWord: choosen[1])));
                             })),
                     Container(
                         margin: const EdgeInsets.only(top: 150, left: 89),
