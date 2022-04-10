@@ -54,9 +54,12 @@ class _LogInState extends State<LogInPage> {
         decoration: InputDecoration(
             prefixIcon: const Icon(Icons.mail, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Email",
-            hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+            labelText: "Email",
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.cyan,
+                fontStyle: FontStyle.italic),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             )));
@@ -87,9 +90,12 @@ class _LogInState extends State<LogInPage> {
               child: const Icon(Icons.visibility, color: Colors.white),
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Password",
-            hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+            labelText: "Password",
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.cyan,
+                fontStyle: FontStyle.italic),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 

@@ -59,9 +59,12 @@ class _SignUpState extends State<SignUpPage> {
         decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "First Name",
+            labelText: "First Name",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            hintText: "Minimum 3 Characters Needed",
             hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+                fontStyle: FontStyle.italic, color: Colors.cyan, fontSize: 15),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
@@ -87,9 +90,12 @@ class _SignUpState extends State<SignUpPage> {
         decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Last Name",
+            labelText: "Last Name",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            hintText: "Minimum 3 Characters Needed",
             hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+                fontStyle: FontStyle.italic, color: Colors.cyan, fontSize: 15),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
@@ -116,9 +122,9 @@ class _SignUpState extends State<SignUpPage> {
             prefixIcon:
                 const Icon(MdiIcons.genderMaleFemale, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Gender",
-            hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+            labelText: "Gender",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
@@ -144,9 +150,9 @@ class _SignUpState extends State<SignUpPage> {
         decoration: InputDecoration(
             prefixIcon: const Icon(MdiIcons.flag, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Region",
-            hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+            labelText: "Region",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
     //Email Field
@@ -171,9 +177,9 @@ class _SignUpState extends State<SignUpPage> {
         decoration: InputDecoration(
             prefixIcon: const Icon(Icons.mail, color: Colors.white),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Email",
-            hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+            labelText: "Email",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
@@ -203,9 +209,12 @@ class _SignUpState extends State<SignUpPage> {
               child: const Icon(Icons.visibility, color: Colors.white),
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Password",
+            labelText: "Password",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            hintText: "Minimum 6 Characters Password Needed",
             hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+                fontStyle: FontStyle.italic, color: Colors.cyan, fontSize: 10),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
@@ -231,9 +240,12 @@ class _SignUpState extends State<SignUpPage> {
               child: const Icon(Icons.visibility, color: Colors.white),
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Confirm Password",
+            labelText: "Confirm Password",
+            labelStyle:
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            hintText: "Minimum 6 Characters Password Needed",
             hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic, color: Colors.cyan),
+                fontStyle: FontStyle.italic, color: Colors.cyan, fontSize: 10),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10))));
 
