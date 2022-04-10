@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hangman/auth_services.dart';
-import 'package:hangman/game_menu_page.dart';
+import 'package:hangman/Screens/game_menu_page.dart';
 import 'package:provider/provider.dart';
 
 class UserProfilePage extends StatelessWidget {

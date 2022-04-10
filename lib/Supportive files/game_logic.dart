@@ -1,156 +1,175 @@
-import 'dart:io';
 import 'dart:math';
 
-var types = [
+//Data
+var typesE = [
+  "Actor",
+  "Actress",
+  "Bird",
+  "Continent",
+  "Country",
+  "Language",
+  "Ocean",
+  "Planet",
+  "Video Game"
+];
+var typesM = [
   "Actor",
   "Actress",
   "Band",
   "Bird",
-  "Continent",
-  "Country",
+  "Fruit",
+  "Movie",
+  "Religion",
+  "Sport",
+  "Vehicle",
+  "Wild Animal",
+  "Colour"
+];
+var typesH = [
+  "Actor",
+  "Actress",
+  "Bird",
   "Cricketer",
   "Fish",
   "Flower",
-  "Fruit",
   "Footballer",
-  "Language",
-  "Movie",
-  "Ocean",
-  "Planet",
-  "Religion",
   "River",
   "Scientist",
-  "Series",
-  "Sport",
-  "Vehicle",
-  "Video Game",
-  "Wild Animal"
+  "Series"
 ];
-var actor = [
-  "Aaron Paul",
-  "Adivi Sesh",
+var actorE = [
+  "Mahesh Babu",
+  "Hrithik Roshan",
+  "Jackie Chan",
+  "Kartik Aaryan",
+  "Yash",
+  "Jeet",
+  "Dhanush",
+  "Mohanlal",
+  "Nagarjuna",
+  "Nani",
+  "Nithin",
+  "Prabhas",
+  "Suriya",
+  "Tom Cruise",
+  "Rannvijay Singha",
+  "Shahid Kapoor",
+  "Akshay Kumar",
+  "Allu Arjun"
+];
+var actorM = [
+  "Thalapathy Vijay",
+  "Vidyut Jammwal",
+  "Tobey Maguire",
+  "Ram pothineni",
+  "Naga Chaitanya",
+  "Johnny Depp",
+  "Chris Evans",
+  "Chris Hemsworth",
   "Ajith Kumar",
   "Akhil Akkineni",
-  "Akshay Kumar",
-  "Allu Arjun",
-  "Alvaro Morte",
+  "Vikram Chatterjee",
+  "Vin Diesel",
+  "Tom Holland",
+  "Nakuul Mehta",
+  "NTR Jr",
+  "Pawan Kalyan",
+  "Prince Narula",
+  "Ram Charan",
+  "Ram Kapoor",
   "Arjun Sarja",
   "Arun Vijay",
   "Andrew Garfield",
   "Ankush Hazra",
   "Aayush Sharma",
-  "Chris Evans",
-  "Chris Hemsworth",
+];
+var actorH = [
+  "Aaron Paul",
+  "Adivi Sesh",
+  "Sushant Singh Rajput",
+  "Shah Rukh Khan",
+  "Saif Ali Khan",
+  "Sai Dharam Tej",
+  "Robert Downey Jr.",
+  "Pedro Gonzalez Alonso",
+  "Vijay Deverakonda",
+  "Ryan Reynolds",
+  "Miguel Herran",
+  "Leonardo Dicaprio",
+  "Jaime Lorente",
+  "Jeremy Renner",
   "Cillian Murphy",
-  "Dhanush",
   "Dulquer Salmaan",
   "Dwayne Johnson",
-  "Hrithik Roshan",
-  "Jackie Chan",
-  "Jaime Lorente",
-  "Jeet",
-  "Jeremy Renner",
-  "Johnny Depp",
-  "Kartik Aaryan",
-  "Leonardo Dicaprio",
-  "Mahesh Babu",
-  "Miguel Herran",
-  "Mohanlal",
-  "Nagarjuna",
-  "Naga Chaitanya",
-  "Nakuul Mehta",
-  "Nani",
-  "Nithin",
-  "NTR Jr",
-  "Pawan Kalyan",
-  "Pedro Gonzalez Alonso",
-  "Prabhas",
-  "Prince Narula",
-  "Ram Charan",
-  "Ram Kapoor",
-  "Ram pothineni",
-  "Rannvijay Singha",
-  "Robert Downey Jr.",
-  "Ryan Reynolds",
-  "Sai Dharam Tej",
-  "Saif Ali Khan",
-  "Shahid Kapoor",
-  "Shah Rukh Khan",
-  "Sushant Singh Rajput",
-  "Suriya",
-  "Tobey Maguire",
-  "Tom Cruise",
-  "Tom Holland",
-  "Thalapathy Vijay",
-  "Vidyut Jammwal",
-  "Vijay Deverakonda",
-  "Vikram Chatterjee",
-  "Vin Diesel",
-  "Yash"
+  "Alvaro Morte",
 ];
-var actress = [
-  "Jacqueline Fernandez",
+var actressE = [
+  "Mouni Roy",
+  "Urvashi Rautela",
+  "Sabila Nur",
+  "Amrita Rao",
+  "Rimi Sen",
+  "Sana Khaan",
+  "Sunny Leone",
+  "Rakul Preet Singh",
   "Anushka Sharma",
   "Shraddha Kapoor",
   "Sara Ali Khan",
-  "Kajal Aggarwal",
-  "Kiara Advani",
   "Kriti Sanon",
   "Shruti haasan",
   "Yami Gautam",
   "Riya Sen",
-  "Asin Thottumkal",
-  "Amrita Rao",
-  "Rimi Sen",
-  "Shriya Saran",
-  "Daisy Shah",
-  "Sana Khaan",
-  "Sunny Leone",
-  "Nayantara",
-  "Nitya Menon",
-  "Rakul Preet Singh",
+  "Ananya Pandey",
+  "Anushka Sharma",
+  "Pooja Hegde",
+  "Paridhi Sharma",
+  "Hina Khan",
+  "Mimi Chakraborty",
+  "Tanjin Tisha",
+];
+var actressM = [
+  "Ishita Dutta",
+  "Jacqueline Fernandez",
+  "Kiara Advani",
   "Keerthi Suresh",
   "Rashmika Mandana",
   "Malvika Sharma",
-  "Kriti Kharbanda",
-  "Regina Cassandra",
-  "Catherine Tresa",
+  "Kajal Aggarwal",
+  "Shriya Saran",
+  "Daisy Shah",
+  "Nayantara",
+  "Nitya Menon",
   "Malvika Mohann",
-  "Ananya Pandey",
   "Pragya Jaiswal",
-  "Anushka Sharma",
-  "Pooja Hegde",
   "Amritha Aiyer",
-  "Scarlett Johansson",
-  "Elizabeth Olsen",
-  "Kate Winslet",
-  "Carol Danvers",
-  "Ashnoor Kaur",
-  "Paridhi Sharma",
-  "Hina Khan",
-  "Anupama Parameswaran",
-  "Jennifer Winget",
-  "Anna Hutchison",
   "Kritika Kamra",
   "Kanchi Singh",
   "Hebah Patel",
-  "Divyanka Tripathi",
-  "Koushani Mukherjee",
-  "Mimi Chakraborty",
-  "Tanjin Tisha",
-  "Sabila Nur",
-  "Ishita Dutta",
-  "Urvashi Rautela",
-  "Mouni Roy",
   "Shivangi Joshi",
   "Sandipta Sen",
   "Sakshi Tanwar",
   "Sumona Chakravarti",
   "Asha Negi",
   "Sonia Balani",
-  "Itziar Ituno"
 ];
-var band = [
+var actressH = [
+  "Itziar Ituno",
+  "Asin Thottumkal",
+  "Kriti Kharbanda",
+  "Regina Cassandra",
+  "Catherine Tresa",
+  "Scarlett Johansson",
+  "Elizabeth Olsen",
+  "Kate Winslet",
+  "Carol Danvers",
+  "Ashnoor Kaur",
+  "Anupama Parameswaran",
+  "Jennifer Winget",
+  "Anna Hutchison",
+  "Divyanka Tripathi",
+  "Koushani Mukherjee",
+];
+var bandM = [
   "Artcell",
   "Shunno",
   "Odd Signature",
@@ -172,9 +191,8 @@ var band = [
   "Backstreet Boys",
   "Green Day"
 ];
-var bird = [
+var birdE = [
   "Pigeon",
-  "Peacock",
   "Parrot",
   "Sparrow",
   "Woodpecker",
@@ -187,83 +205,84 @@ var bird = [
   "Bat",
   "Ostrich",
   "Dove",
-  "Crane",
   "Duck",
-  "Robin",
   "Penguin",
   "Hummingbird",
   "Turkey",
   "Flamingo",
-  "Gull",
-  "Rooster",
   "Vulture",
-  "Hornbill",
   "Nightingale",
   "Mynah",
   "Hen",
-  "Egyptian Vulture",
-  "Duckling",
   "Cuckoo",
-  "Chick",
   "Quail",
-  "Pewit",
   "Wagtail",
-  "Weaver",
   "Tailorbird",
   "Swallow",
-  "Peregrine Falcon",
+  "Falcon",
+  "Goose",
+  "Cockatoo",
+  "Cock",
+  "Macaw",
+  "Peacock",
+  "Doel"
+];
+var birdM = [
+  "Gull",
+  "Rooster",
+  "Robin",
+  "Crane",
+  "Hornbill",
+  "Duckling",
+  "Chick",
+  "Pewit",
+  "Weaver",
   "Pelican",
   "Stork",
   "Skylark",
   "Seagull",
-  "Sandpipe",
-  "Raven",
-  "Partridge",
   "Osprey",
-  "Falcon",
+  "Pheasant",
+  "Oriole",
+  "Raven",
+  "Magpie",
+  "Gander",
+  "Grebe",
+  "Canary",
+  "Avocet",
+  "Chukar",
+  "Eider",
+  "Drake",
   "Kiwi",
   "Lark",
   "Heron",
   "Hoopoe",
+];
+var birdH = [
+  "Egyptian Vulture",
+  "Peregrine Falcon",
+  "Sandpipe",
+  "Partridge",
   "Hawk Cuckoo",
   "Great Egret",
-  "Goose",
   "Eurasian Hobby",
-  "Eider",
-  "Drake",
-  "Cockatoo",
-  "Avocet",
-  "Chukar",
-  "Cock",
-  "Cygnet",
-  "Gander",
-  "Grebe",
-  "Canary",
+  "Hoatzin",
+  "Kestrel",
   "Cormorant",
   "Partridge",
   "Goldfinch",
-  "Goose",
-  "Hoatzin",
-  "Kestrel",
-  "Kingfisher",
-  "Macaw",
-  "Magpie",
-  "Peacock",
-  "Pheasant",
-  "Oriole",
-  "Raven",
-  "Doel"
+  "Cygnet",
 ];
-var continent = [
+var continentE = [
   "Asia",
   "Africa",
   "Europe",
-  "North Amercia",
+  "North America",
   "South America",
   "Australia",
   "Antarctica"
 ];
-var country = [
+var countryE = [
   "Afghanistan",
   "Argentina",
   "Australia",
@@ -365,7 +384,7 @@ var country = [
   "Vietnam",
   "Zimbabwe"
 ];
-var cricketer = [
+var cricketerH = [
   "Donald Bradman",
   "Sachin Tendulkar",
   "Garfield Sobers",
@@ -427,7 +446,7 @@ var cricketer = [
   "Mohammad Mahmudullah",
   "Imrul Kayes"
 ];
-var fish = [
+var fishH = [
   "Albacore Tuna",
   "Alligator Gar",
   "Baiji",
@@ -469,7 +488,7 @@ var fish = [
   "Red Snapper",
   "Ilish"
 ];
-var flower = [
+var flowerH = [
   "Wallflower",
   "Water lily",
   "Violet",
@@ -501,7 +520,7 @@ var flower = [
   "Aster",
   "Aspen"
 ];
-var fruit = [
+var fruitM = [
   "Apple",
   "Acerola",
   "Banana",
@@ -533,7 +552,7 @@ var fruit = [
   "Longan",
   "Loquat"
 ];
-var footballer = [
+var footballerH = [
   "Cristiano Ronaldo",
   "Lionel Messi",
   "Neymar",
@@ -560,7 +579,7 @@ var footballer = [
   "Nani",
   "Mohamed Salah"
 ];
-var language = [
+var languageE = [
   "Arabic",
   "French",
   "Spanish",
@@ -582,7 +601,7 @@ var language = [
   "Korean",
   "Tamil"
 ];
-var movie = [
+var movieM = [
   "Kabhi Khushi Kabhi Gum",
   "Kal Ho Na Ho",
   "Drishyam",
@@ -614,8 +633,14 @@ var movie = [
   "Vivah",
   "Captain Marvel"
 ];
-var ocean = ["Arctic", "Southern", "Indian", "Atlantic", "Pacific"];
-var planet = [
+var oceanE = [
+  "Arctic Ocean",
+  "Southern Ocean",
+  "Indian Ocean",
+  "Atlantic Ocean",
+  "Pacific Ocean"
+];
+var planetE = [
   "Mercury",
   "Venus",
   "Earth",
@@ -625,7 +650,7 @@ var planet = [
   "Uranus",
   "Neptune"
 ];
-var religion = [
+var religionM = [
   "Christianity",
   "Islam",
   "Hinduism",
@@ -633,7 +658,7 @@ var religion = [
   "Sikhism",
   "Judaism"
 ];
-var river = [
+var riverH = [
   "Yangtze",
   "Mississippi",
   "Yenisey",
@@ -655,7 +680,7 @@ var river = [
   "Bhairab",
   "Karnaphuli"
 ];
-var scientist = [
+var scientistH = [
   "Hippoocrates",
   "Aristotle",
   "Archimedes",
@@ -667,7 +692,7 @@ var scientist = [
   "Newton",
   "Edward Jenner"
 ];
-var series = [
+var seriesH = [
   "Money Hiest",
   "Sacred Games",
   "Game Of Thrones",
@@ -689,7 +714,7 @@ var series = [
   "Naruto",
   "That Time I Got Reincarnated as a Slime"
 ];
-var sport = [
+var sportM = [
   "Football",
   "Badminton",
   "Cricket",
@@ -711,7 +736,7 @@ var sport = [
   "Chess",
   "Cards"
 ];
-var vehicle = [
+var vehicleM = [
   "Ambulance",
   "Bulldozer",
   "Express Train",
@@ -726,9 +751,9 @@ var vehicle = [
   "Launch",
   "Ship",
   "Speed Boat",
-  "Metro TRain"
+  "Metro Train"
 ];
-var videoGame = [
+var videoGameE = [
   "CALL OF DUTY",
   "MODERN WARFARE",
   "CLASH OF CLANS",
@@ -750,7 +775,7 @@ var videoGame = [
   "GUNS OF BOOM",
   "HILL CLIMB"
 ];
-var wildAnimal = [
+var wildAnimalM = [
   "Walrus",
   "Leopard",
   "Chimpanzee",
@@ -767,104 +792,211 @@ var wildAnimal = [
   "Zebra",
   "Wolf"
 ];
+var colourM = [
+  "Red",
+  "Blue",
+  "Green",
+  "Orange",
+  "White",
+  "Black",
+  "Yellow",
+  "Purple",
+  "Silver",
+  "Brown",
+  "Gray",
+  "Pink",
+  "Olive",
+  "Maroon",
+  "Violet",
+  "Charcoal",
+  "Magenta",
+  "Bronze",
+  "Cream",
+  "Gold",
+  "Tan",
+  "Teal",
+  "Mustard",
+  "Navy Blue",
+  "Coral",
+  "Burgundy",
+  "Lavender",
+  "Mauve",
+  "Peach",
+  "Rust",
+  "Indigo",
+  "Ruby",
+  "Clay",
+  "Cyan",
+  "Azure",
+  "Beige",
+  "Off White",
+  "Turquoise",
+  "Amber",
+  "Mint"
+];
 
-List<String> chooseRandomWord() {
+//Choosing For Easy Level
+List<String> chooseRandomWordEasy() {
   Random random = Random();
-  String typeSelection = types[random.nextInt(23)];
-  String choosenType = "Actor";
-  String choosenWord = "Aaron Paul";
+
+  //Type Choose
+  String typeSelection = typesE[random.nextInt(9)];
+  String choosenType = "Name Written In Logo";
+  String choosenWord = "MASTERMIND";
+
+  //Word Choose
   switch (typeSelection) {
     case "Actor":
       choosenType = "Actor";
-      choosenWord = actor[random.nextInt(60)].toUpperCase();
+      choosenWord = actorE[random.nextInt(18)].toUpperCase();
       break;
     case "Actress":
       choosenType = "Actress";
-      choosenWord = actress[random.nextInt(60)].toUpperCase();
-      break;
-    case "Band":
-      choosenType = "Band";
-      choosenWord = band[random.nextInt(20)].toUpperCase();
+      choosenWord = actressE[random.nextInt(22)].toUpperCase();
       break;
     case "Bird":
       choosenType = "Bird";
-      choosenWord = bird[random.nextInt(80)].toUpperCase();
+      choosenWord = birdE[random.nextInt(34)].toUpperCase();
       break;
     case "Continent":
       choosenType = "Continent";
-      choosenWord = continent[random.nextInt(7)].toUpperCase();
+      choosenWord = continentE[random.nextInt(7)].toUpperCase();
       break;
     case "Country":
       choosenType = "Country";
-      choosenWord = country[random.nextInt(100)].toUpperCase();
-      break;
-    case "Cricketer":
-      choosenType = "Cricketer";
-      choosenWord = cricketer[random.nextInt(60)].toUpperCase();
-      break;
-    case "Fish":
-      choosenType = "Fish";
-      choosenWord = fish[random.nextInt(40)].toUpperCase();
-      break;
-    case "Flower":
-      choosenType = "Flower";
-      choosenWord = flower[random.nextInt(30)].toUpperCase();
-      break;
-    case "Fruit":
-      choosenType = "Fruit";
-      choosenWord = fruit[random.nextInt(30)].toUpperCase();
-      break;
-    case "Footballer":
-      choosenType = "Footballer";
-      choosenWord = footballer[random.nextInt(25)].toUpperCase();
+      choosenWord = countryE[random.nextInt(100)].toUpperCase();
       break;
     case "Language":
       choosenType = "Language";
-      choosenWord = language[random.nextInt(20)].toUpperCase();
-      break;
-    case "Movie":
-      choosenType = "Movie";
-      choosenWord = movie[random.nextInt(30)].toUpperCase();
+      choosenWord = languageE[random.nextInt(20)].toUpperCase();
       break;
     case "Ocean":
       choosenType = "Ocean";
-      choosenWord = ocean[random.nextInt(5)].toUpperCase();
+      choosenWord = oceanE[random.nextInt(5)].toUpperCase();
       break;
     case "Planet":
       choosenType = "Planet";
-      choosenWord = planet[random.nextInt(8)].toUpperCase();
+      choosenWord = planetE[random.nextInt(8)].toUpperCase();
+      break;
+    case "Video Game":
+      choosenType = "Video Game";
+      choosenWord = videoGameE[random.nextInt(20)].toUpperCase();
+      break;
+    default:
+  }
+  return [choosenType, choosenWord];
+}
+
+//Choosing For Medium Level
+List<String> chooseRandomWordMedium() {
+  Random random = Random();
+
+  //Type Choose
+  String typeSelection = typesM[random.nextInt(11)];
+  String choosenType = "Name Written In Logo";
+  String choosenWord = "MASTERMIND";
+
+  //Word Choose
+  switch (typeSelection) {
+    case "Actor":
+      choosenType = "Actor";
+      choosenWord = actorM[random.nextInt(24)].toUpperCase();
+      break;
+    case "Actress":
+      choosenType = "Actress";
+      choosenWord = actressM[random.nextInt(23)].toUpperCase();
+      break;
+    case "Band":
+      choosenType = "Band";
+      choosenWord = bandM[random.nextInt(20)].toUpperCase();
+      break;
+    case "Bird":
+      choosenType = "Bird";
+      choosenWord = birdM[random.nextInt(29)].toUpperCase();
+      break;
+    case "Fruit":
+      choosenType = "Fruit";
+      choosenWord = fruitM[random.nextInt(30)].toUpperCase();
+      break;
+    case "Movie":
+      choosenType = "Movie";
+      choosenWord = movieM[random.nextInt(30)].toUpperCase();
       break;
     case "Religion":
       choosenType = "Religion";
-      choosenWord = religion[random.nextInt(6)].toUpperCase();
-      break;
-    case "River":
-      choosenType = "River";
-      choosenWord = river[random.nextInt(20)].toUpperCase();
-      break;
-    case "Scientist":
-      choosenType = "Scientist";
-      choosenWord = scientist[random.nextInt(10)].toUpperCase();
-      break;
-    case "Series":
-      choosenType = "Series";
-      choosenWord = series[random.nextInt(20)].toUpperCase();
+      choosenWord = religionM[random.nextInt(6)].toUpperCase();
       break;
     case "Sport":
       choosenType = "Sport";
-      choosenWord = sport[random.nextInt(20)].toUpperCase();
+      choosenWord = sportM[random.nextInt(20)].toUpperCase();
       break;
     case "Vehicle":
       choosenType = "Vehicle";
-      choosenWord = vehicle[random.nextInt(15)].toUpperCase();
-      break;
-    case "Video Game":
-      choosenType = "video Game";
-      choosenWord = videoGame[random.nextInt(20)].toUpperCase();
+      choosenWord = vehicleM[random.nextInt(15)].toUpperCase();
       break;
     case "Wild Animal":
-      choosenType = "Aild Animal";
-      choosenWord = wildAnimal[random.nextInt(15)].toUpperCase();
+      choosenType = "Wild Animal";
+      choosenWord = wildAnimalM[random.nextInt(15)].toUpperCase();
+      break;
+    case "Colour":
+      choosenType = "Colour";
+      choosenWord = colourM[random.nextInt(40)].toUpperCase();
+      break;
+    default:
+  }
+  return [choosenType, choosenWord];
+}
+
+//Choosing For Hard Level
+List<String> chooseRandomWordHard() {
+  Random random = Random();
+
+  //Type Choose
+  String typeSelection = typesH[random.nextInt(10)];
+  String choosenType = "Name Written In Logo";
+  String choosenWord = "MASTERMIND";
+
+  //Word Choose
+  switch (typeSelection) {
+    case "Actor":
+      choosenType = "Actor";
+      choosenWord = actorH[random.nextInt(18)].toUpperCase();
+      break;
+    case "Actress":
+      choosenType = "Actress";
+      choosenWord = actressH[random.nextInt(15)].toUpperCase();
+      break;
+    case "Bird":
+      choosenType = "Bird";
+      choosenWord = birdH[random.nextInt(13)].toUpperCase();
+      break;
+    case "Cricketer":
+      choosenType = "Cricketer";
+      choosenWord = cricketerH[random.nextInt(60)].toUpperCase();
+      break;
+    case "Fish":
+      choosenType = "Fish";
+      choosenWord = fishH[random.nextInt(40)].toUpperCase();
+      break;
+    case "Flower":
+      choosenType = "Flower";
+      choosenWord = flowerH[random.nextInt(30)].toUpperCase();
+      break;
+    case "Footballer":
+      choosenType = "Footballer";
+      choosenWord = footballerH[random.nextInt(25)].toUpperCase();
+      break;
+    case "River":
+      choosenType = "River";
+      choosenWord = riverH[random.nextInt(20)].toUpperCase();
+      break;
+    case "Scientist":
+      choosenType = "Scientist";
+      choosenWord = scientistH[random.nextInt(10)].toUpperCase();
+      break;
+    case "Series":
+      choosenType = "Series";
+      choosenWord = seriesH[random.nextInt(20)].toUpperCase();
       break;
     default:
   }

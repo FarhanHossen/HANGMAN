@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/login_page.dart';
-import 'package:hangman/users.dart';
+import 'package:hangman/Screens/login_page.dart';
+import 'package:hangman/Supportive%20files/users.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);

@@ -2,8 +2,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hangman/home_screen_page.dart';
-import 'package:hangman/login_page.dart';
+import 'package:hangman/Screens/home_screen_page.dart';
+import 'package:hangman/Screens/login_page.dart';
 
 class CheckUsersLoginActivity extends StatelessWidget {
   const CheckUsersLoginActivity({Key? key}) : super(key: key);

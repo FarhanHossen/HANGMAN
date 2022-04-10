@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/home_screen_page.dart';
-import 'package:hangman/signup_page.dart';
-import 'package:hangman/reset_password_page.dart';
+import 'package:hangman/Screens/home_screen_page.dart';
+import 'package:hangman/Screens/signup_page.dart';
+import 'package:hangman/Screens/reset_password_page.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);

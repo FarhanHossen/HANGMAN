@@ -35,7 +35,7 @@ class Users {
       'firstName': firstName,
       'lastName': lastName,
       'gender': gender,
-      'region': region
+      'region': region,
     };
   }
 }

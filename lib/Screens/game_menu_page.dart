@@ -4,12 +4,11 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/gameLogic.dart';
+import 'package:hangman/Screens/difficulty_level_decider_page.dart';
 import 'package:hangman/global_chat_page.dart';
-import 'package:hangman/hangman_screen.dart';
-import 'package:hangman/home_screen_page.dart';
+import 'package:hangman/Screens/home_screen_page.dart';
 import 'package:hangman/ranking_page.dart';
-import 'package:hangman/check_users_login_activity.dart';
+import 'package:hangman/Supportive%20files/check_users_login_activity.dart';
 import 'package:hangman/user_profile_page.dart';
 
 class GameMenuPage extends StatefulWidget {
@@ -54,14 +53,11 @@ class _GameMenuState extends State<GameMenuPage> {
                                 size: 70, color: Colors.red.shade900),
                             onPressed: () {
                               Fluttertoast.showToast(msg: "Let's Go");
-                              List<String> choosen = chooseRandomWord();
-                              print(choosen);
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HangmanScreen(
-                                          choosenType: choosen[0],
-                                          choosenWord: choosen[1])));
+                                      builder: (context) =>
+                                          const DifficultyLevelDeciderPage()));
                             })),
                     Container(
                         margin: const EdgeInsets.only(top: 150, left: 89),
