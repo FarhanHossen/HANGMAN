@@ -19,17 +19,22 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade900,
-        child: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.cyan, size: 35),
-            onPressed: () {
-              Fluttertoast.showToast(msg: "Choose what you want to do");
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GameMenuPage()));
-            }),
-      ),
+          color: Colors.grey.shade900,
+          child: MaterialButton(
+              padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+              minWidth: MediaQuery.of(context).size.width,
+              onPressed: () {
+                Fluttertoast.showToast(msg: "Choose What You Want To Do");
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GameMenuPage()));
+              },
+              child: const Text("Back To Menu",
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.cyan,
+                      fontWeight: FontWeight.bold)))),
       backgroundColor: Colors.cyan.shade900,
       body: Center(
         child: Column(children: <Widget>[
