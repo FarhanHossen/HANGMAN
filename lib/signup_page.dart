@@ -72,9 +72,8 @@ class _SignUpState extends State<SignUpPage> {
         ),
         hintText: "Minimum 3 Characters Needed",
         hintStyle: const TextStyle(
-          fontStyle: FontStyle.italic,
           color: Colors.cyan,
-          fontSize: 15,
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -114,9 +113,8 @@ class _SignUpState extends State<SignUpPage> {
         ),
         hintText: "Minimum 3 Characters Needed",
         hintStyle: const TextStyle(
-          fontStyle: FontStyle.italic,
           color: Colors.cyan,
-          fontSize: 15,
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -186,84 +184,6 @@ class _SignUpState extends State<SignUpPage> {
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         labelText: "Region",
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-
-    //Birth Date Field
-    final birthDateField = TextFormField(
-      autofocus: false,
-      controller: birthDateController,
-      keyboardType: TextInputType.datetime,
-      onSaved: (value) {
-        birthDateController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          Icons.calendar_view_day,
-          color: Colors.white,
-        ),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "Birth Date",
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-
-    //Age Field
-    final ageField = TextFormField(
-      autofocus: false,
-      controller: ageController,
-      keyboardType: TextInputType.number,
-      onSaved: (value) {
-        ageController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          Icons.calendar_view_month,
-          color: Colors.lightGreenAccent,
-        ),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "Age",
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-
-    //Contact Field
-    final contactField = TextFormField(
-      autofocus: false,
-      controller: contactController,
-      keyboardType: TextInputType.number,
-      onSaved: (value) {
-        contactController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          Icons.phone,
-          color: Colors.orangeAccent,
-        ),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "Contact",
         labelStyle: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
@@ -348,7 +268,6 @@ class _SignUpState extends State<SignUpPage> {
         ),
         hintText: "Minimum 6 Characters Password Needed",
         hintStyle: const TextStyle(
-          fontStyle: FontStyle.italic,
           color: Colors.cyan,
           fontSize: 10,
         ),
@@ -393,7 +312,6 @@ class _SignUpState extends State<SignUpPage> {
         ),
         hintText: "Minimum 6 Characters Password Needed",
         hintStyle: const TextStyle(
-          fontStyle: FontStyle.italic,
           color: Colors.cyan,
           fontSize: 10,
         ),
@@ -482,18 +400,6 @@ class _SignUpState extends State<SignUpPage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    birthDateField,
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ageField,
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    contactField,
-                    const SizedBox(
-                      height: 20,
-                    ),
                     emailField,
                     const SizedBox(
                       height: 20,
@@ -548,9 +454,6 @@ class _SignUpState extends State<SignUpPage> {
     users.highScoreEasy = 0;
     users.highScoreMedium = 0;
     users.highScoreHard = 0;
-    users.birthDate = birthDateController.text;
-    users.age = ageController.text;
-    users.contact = contactController.text;
 
     await firebaseFirestore
         .collection("users")

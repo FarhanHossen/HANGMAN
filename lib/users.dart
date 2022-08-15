@@ -8,9 +8,6 @@ class Users {
   int? highScoreEasy;
   int? highScoreMedium;
   int? highScoreHard;
-  String? birthDate;
-  String? age;
-  String? contact;
 
   Users({
     this.uid,
@@ -22,9 +19,6 @@ class Users {
     this.highScoreEasy,
     this.highScoreMedium,
     this.highScoreHard,
-    this.birthDate,
-    this.age,
-    this.contact,
   });
 
   //Receiving Data From Server
@@ -39,9 +33,6 @@ class Users {
       highScoreEasy: map['Easy High Score'],
       highScoreMedium: map['Medium High Score'],
       highScoreHard: map['Hard High Score'],
-      birthDate: map['Birth Date'],
-      age: map['Age'],
-      contact: map['Contact'],
     );
   }
 
@@ -57,9 +48,6 @@ class Users {
       'Easy High Score': highScoreEasy,
       'Medium High Score': highScoreMedium,
       'Hard High Score': highScoreHard,
-      'Birth Date': birthDate,
-      'Age': age,
-      'Contact': contact,
     };
   }
 
@@ -71,8 +59,5 @@ class Users {
         region = firestore['Region'],
         highScoreEasy = firestore['Easy High Score'],
         highScoreMedium = firestore['Medium High Score'],
-        highScoreHard = firestore['Hard High Score'],
-        birthDate = firestore['Birth Date'],
-        age = firestore['Age'],
-        contact = firestore['Contact'];
+        highScoreHard = firestore['Hard High Score'];
 }

@@ -60,7 +60,6 @@ class _LogInState extends State<LogInPage> {
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: Colors.cyan,
-          fontStyle: FontStyle.italic,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -105,7 +104,6 @@ class _LogInState extends State<LogInPage> {
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: Colors.cyan,
-          fontStyle: FontStyle.italic,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

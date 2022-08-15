@@ -14,7 +14,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Row(
+      floatingActionButton: Row( 
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),

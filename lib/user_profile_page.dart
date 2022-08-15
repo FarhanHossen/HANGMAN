@@ -12,6 +12,7 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
+
       //Appbar With Back Button
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -23,334 +24,28 @@ class UserProfilePage extends StatelessWidget {
           },
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          const Icon(
-            Icons.person,
-            size: 150,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Material(
-            elevation: 15,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.teal.shade900,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: <Widget>[
-                //Name Field
-                const Text(
-                  "NAME",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.firstName!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  profile.lastName!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            const Icon(
+              Icons.person,
+              size: 200,
             ),
-          ),
-
-          //Mail Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.teal.shade900,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "MAIL",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.email!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
+            const SizedBox(
+              height: 20,
             ),
-          ),
-
-          //Contact Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.teal.shade900,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "CONTACT",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.contact!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
-            ),
-          ),
-
-          //Country Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.cyanAccent,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "COUNTRY",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.region!,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
-            ),
-          ),
-
-          //Gender Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.cyanAccent,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "Gender",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.gender!,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
-            ),
-          ),
-
-          //Birth Date Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.cyanAccent,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "BIRTH DATE",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.birthDate!,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
-            ),
-          ),
-
-          //Age Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.cyanAccent,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(children: [
-                const Text(
-                  "Age",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  ":",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  profile.age!.toString(),
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ]),
-            ),
-          ),
-
-          //Easy High Score Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
+            Material(
+              elevation: 15,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.teal.shade900,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(children: <Widget>[
+                  //Name Field
                   const Text(
-                    "EASY HIGH SCORE",
-                    textAlign: TextAlign.left,
+                    "NAME",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -361,7 +56,7 @@ class UserProfilePage extends StatelessWidget {
                   const Text(
                     ":",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -370,32 +65,40 @@ class UserProfilePage extends StatelessWidget {
                     width: 20,
                   ),
                   Text(
-                    profile.highScoreEasy!.toString(),
+                    profile.firstName!,
                     style: const TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                ],
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    profile.lastName!,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ]),
               ),
             ),
-          ),
 
-          //Medium High Score Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
+            //Mail Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.teal.shade900,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(children: [
                   const Text(
-                    "MEDIUM HIGH SCORE",
-                    textAlign: TextAlign.left,
+                    "MAIL",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -406,7 +109,7 @@ class UserProfilePage extends StatelessWidget {
                   const Text(
                     ":",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -415,32 +118,29 @@ class UserProfilePage extends StatelessWidget {
                     width: 20,
                   ),
                   Text(
-                    profile.highScoreMedium!.toString(),
+                    profile.email!,
                     style: const TextStyle(
-                      color: Colors.red,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                ],
+                ]),
               ),
             ),
-          ),
 
-          //Hard High Score Field
-          Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(0),
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
+            //Country Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.cyanAccent,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(children: [
                   const Text(
-                    "HARD HIGH SCORE",
-                    textAlign: TextAlign.left,
+                    "COUNTRY",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -451,7 +151,7 @@ class UserProfilePage extends StatelessWidget {
                   const Text(
                     ":",
                     style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -460,18 +160,195 @@ class UserProfilePage extends StatelessWidget {
                     width: 20,
                   ),
                   Text(
-                    profile.highScoreHard!.toString(),
+                    profile.region!,
                     style: const TextStyle(
-                      color: Colors.red,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                ],
+                ]),
               ),
             ),
-          ),
-        ],
+
+            //Gender Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.cyanAccent,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(children: [
+                  const Text(
+                    "Gender",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  const Text(
+                    ":",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    profile.gender!,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ]),
+              ),
+            ),
+
+            //Easy High Score Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "EASY HIGH SCORE",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    const Text(
+                      ":",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      profile.highScoreEasy!.toString(),
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            //Medium High Score Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "MEDIUM HIGH SCORE",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    const Text(
+                      ":",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      profile.highScoreMedium!.toString(),
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            //Hard High Score Field
+            Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(0),
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      "HARD HIGH SCORE",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    const Text(
+                      ":",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      profile.highScoreHard!.toString(),
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
