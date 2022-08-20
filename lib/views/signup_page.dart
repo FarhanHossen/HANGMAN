@@ -3,10 +3,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hangman/controllers/auth_controller.dart';
+import 'package:hangman/models/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/login_page.dart';
-import 'package:hangman/users.dart';
+import 'package:hangman/views/login_page.dart';
+import 'package:hangman/models/users.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -24,26 +26,21 @@ class _SignUpState extends State<SignUpPage> {
   final formKey = GlobalKey<FormState>();
 
   //Editing Controller
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final genderController = TextEditingController();
+  final userNameController = TextEditingController();
   final regionController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  final birthDateController = TextEditingController();
-  final ageController = TextEditingController();
-  final contactController = TextEditingController();
 
   //Firebase
   final _authentication = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    //First Name Field
-    final firstNameField = TextFormField(
+    //User Name Field
+    final userNameField = TextFormField(
       autofocus: false,
-      controller: firstNameController,
+      controller: userNameController,
       keyboardType: TextInputType.name,
       validator: (value) {
         RegExp reg = RegExp(r'^.{3,}$');
@@ -56,105 +53,32 @@ class _SignUpState extends State<SignUpPage> {
         return null;
       },
       onSaved: (value) {
-        firstNameController.text = value!;
+        userNameController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.person,
-          color: Colors.tealAccent,
+          color: colour3,
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "First Name",
+        labelText: "User Name",
         labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontFamily: 'Philosopher',
           fontSize: 20,
+          color: colour3,
         ),
         hintText: "Minimum 3 Characters Needed",
         hintStyle: const TextStyle(
-          color: Colors.cyan,
+          fontFamily: 'Philosopher',
+          color: colour3,
           fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-      ),
-    );
-
-    //Last Name Field
-    final lastNameField = TextFormField(
-      autofocus: false,
-      controller: lastNameController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        RegExp reg = RegExp(r'^.{3,}$');
-        if (value!.isEmpty) {
-          return ("You Cannot Skip This Part");
-        }
-        if (!reg.hasMatch(value)) {
-          return ("Minimum 3 Characters Needed");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        lastNameController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          Icons.person,
-          color: Colors.tealAccent,
-        ),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "Last Name",
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        hintText: "Minimum 3 Characters Needed",
-        hintStyle: const TextStyle(
-          color: Colors.cyan,
-          fontSize: 12,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-
-    //Gender Field
-    final genderField = TextFormField(
-      autofocus: false,
-      controller: genderController,
-      keyboardType: TextInputType.name,
-      validator: (value) {
-        RegExp reg = RegExp(r'^.{3,}$');
-        if (value!.isEmpty) {
-          return ("You Cannot Skip This Part");
-        }
-        if (!reg.hasMatch(value)) {
-          return ("Minimum 3 Characters Needed");
-        }
-        return null;
-      },
-      onSaved: (value) {
-        firstNameController.text = value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(
-          MdiIcons.genderMaleFemale,
-          color: Colors.blueAccent,
-        ),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        labelText: "Gender",
-        labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        fillColor: colour2,
+        filled: true,
       ),
     );
 
@@ -174,23 +98,32 @@ class _SignUpState extends State<SignUpPage> {
         return null;
       },
       onSaved: (value) {
-        firstNameController.text = value!;
+        regionController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: const Icon(
           MdiIcons.flag,
-          color: Colors.blueAccent,
+          color: colour3,
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         labelText: "Region",
         labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontFamily: 'Philosopher',
           fontSize: 20,
+          color: colour3,
+        ),
+        hintText: "Full Name Preferable",
+        hintStyle: const TextStyle(
+          fontFamily: 'Philosopher',
+          color: colour3,
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
+        fillColor: colour2,
+        filled: true,
       ),
     );
 
@@ -215,17 +148,20 @@ class _SignUpState extends State<SignUpPage> {
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.mail,
-          color: Colors.lightBlue,
+          color: colour3,
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         labelText: "Email",
         labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontFamily: 'Philosopher',
           fontSize: 20,
+          color: colour3,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
+        fillColor: colour2,
+        filled: true,
       ),
     );
 
@@ -251,29 +187,33 @@ class _SignUpState extends State<SignUpPage> {
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.vpn_key,
-          color: Colors.red,
+          color: colour3,
         ),
         suffixIcon: InkWell(
           onTap: _togglePasswordView,
           child: const Icon(
             Icons.visibility,
-            color: Colors.white,
+            color: colour3,
           ),
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         labelText: "Password",
         labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontFamily: 'Philosopher',
+          color: colour3,
           fontSize: 20,
         ),
         hintText: "Minimum 6 Characters Password Needed",
         hintStyle: const TextStyle(
-          color: Colors.cyan,
-          fontSize: 10,
+          fontFamily: 'Philosopher',
+          color: colour3,
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
+        fillColor: colour2,
+        filled: true,
       ),
     );
 
@@ -295,29 +235,33 @@ class _SignUpState extends State<SignUpPage> {
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.vpn_key,
-          color: Colors.red,
+          color: colour3,
         ),
         suffixIcon: InkWell(
           onTap: _toggleConfirmPasswordView,
           child: const Icon(
             Icons.visibility,
-            color: Colors.white,
+            color: colour3,
           ),
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         labelText: "Confirm Password",
         labelStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontFamily: 'Philosopher',
+          color: colour3,
           fontSize: 20,
         ),
         hintText: "Minimum 6 Characters Password Needed",
         hintStyle: const TextStyle(
-          color: Colors.cyan,
-          fontSize: 10,
+          color: colour3,
+          fontFamily: 'Philosopher',
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
+        fillColor: colour2,
+        filled: true,
       ),
     );
 
@@ -325,9 +269,9 @@ class _SignUpState extends State<SignUpPage> {
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.teal,
+      color: colour1,
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
           signUp(emailController.text, passwordController.text);
@@ -337,7 +281,7 @@ class _SignUpState extends State<SignUpPage> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 25,
-            color: Colors.black,
+            color: colour2,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -345,29 +289,38 @@ class _SignUpState extends State<SignUpPage> {
     );
 
     //Other Works
-    return Scaffold(
-      backgroundColor: Colors.black,
-      //Appbar With Back Button
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.red,
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/signup_background.jpg',
           ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+          fit: BoxFit.cover,
+          opacity: 0.5,
         ),
       ),
-      body: SingleChildScrollView(
-        //Logo Set
-        child: Center(
-          child: Container(
-            color: Colors.black,
+      child: Scaffold(
+        // Appbar With Back Button
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: colour2,
+              size: 40,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+        body: SingleChildScrollView(
+          //Logo Set
+          child: Center(
             child: Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(26.0),
               child: Form(
                 key: formKey,
                 child: Column(
@@ -384,15 +337,7 @@ class _SignUpState extends State<SignUpPage> {
                     const SizedBox(
                       height: 50,
                     ),
-                    firstNameField,
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    lastNameField,
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    genderField,
+                    userNameField,
                     const SizedBox(
                       height: 20,
                     ),
@@ -427,8 +372,8 @@ class _SignUpState extends State<SignUpPage> {
   //Signup Functionality
   void signUp(String email, String password) async {
     if (formKey.currentState!.validate()) {
-      await _authentication
-          .createUserWithEmailAndPassword(email: email, password: password)
+      await AuthController.instance
+          .signUp(email: email, password: password)
           .then((value) => {uploadToFirestore()})
           .catchError(
         (e) {
@@ -447,9 +392,7 @@ class _SignUpState extends State<SignUpPage> {
 
     users.email = user!.email;
     users.uid = user.uid;
-    users.firstName = firstNameController.text;
-    users.lastName = lastNameController.text;
-    users.gender = genderController.text;
+    users.userName = userNameController.text;
     users.region = regionController.text;
     users.highScoreEasy = 0;
     users.highScoreMedium = 0;

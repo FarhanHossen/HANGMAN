@@ -1,10 +1,8 @@
 class Users {
   String? uid;
   String? email;
-  String? firstName;
-  String? lastName;
+  String? userName;
   String? region;
-  String? gender;
   int? highScoreEasy;
   int? highScoreMedium;
   int? highScoreHard;
@@ -12,10 +10,8 @@ class Users {
   Users({
     this.uid,
     this.email,
-    this.firstName,
-    this.lastName,
+    this.userName,
     this.region,
-    this.gender,
     this.highScoreEasy,
     this.highScoreMedium,
     this.highScoreHard,
@@ -26,9 +22,7 @@ class Users {
     return Users(
       uid: map['Uid'],
       email: map['Email'],
-      firstName: map['First Name'],
-      lastName: map['Last Name'],
-      gender: map['Gender'],
+      userName: map['User Name'],
       region: map['Region'],
       highScoreEasy: map['Easy High Score'],
       highScoreMedium: map['Medium High Score'],
@@ -41,10 +35,7 @@ class Users {
     return {
       'Uid': uid,
       'Email': email,
-      'First Name': firstName,
-      'Last Name': lastName,
-      'Gender': gender,
-      'Region': region,
+      'User Name': userName,
       'Easy High Score': highScoreEasy,
       'Medium High Score': highScoreMedium,
       'Hard High Score': highScoreHard,
@@ -53,9 +44,7 @@ class Users {
 
   Users.fromFirestore(Map<String, dynamic> firestore)
       : email = firestore['Email'],
-        firstName = firestore['First Name'],
-        lastName = firestore['Last Name'],
-        gender = firestore['Gender'],
+        userName = firestore['User Name'],
         region = firestore['Region'],
         highScoreEasy = firestore['Easy High Score'],
         highScoreMedium = firestore['Medium High Score'],

@@ -1,7 +1,7 @@
 //User Profile Screen
 
 import 'package:flutter/material.dart';
-import 'package:hangman/users.dart';
+import 'package:hangman/models/users.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({Key? key, required this.profile}) : super(key: key);
@@ -65,18 +65,7 @@ class UserProfilePage extends StatelessWidget {
                     width: 20,
                   ),
                   Text(
-                    profile.firstName!,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    profile.lastName!,
+                    profile.userName!,
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -178,8 +167,8 @@ class UserProfilePage extends StatelessWidget {
               color: Colors.cyanAccent,
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: Row(children: [
-                  const Text(
+                child: Row(children: const [
+                  Text(
                     "Gender",
                     style: TextStyle(
                       color: Colors.black,
@@ -187,23 +176,12 @@ class UserProfilePage extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 15,
                   ),
-                  const Text(
+                  Text(
                     ":",
                     style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    profile.gender!,
-                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,

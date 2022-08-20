@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/easy_hangman_screen.dart';
-import 'package:hangman/game_menu_page.dart';
-import 'package:hangman/hard_hangman_screen.dart';
-import 'package:hangman/medium_hangman_screen.dart';
-import 'package:hangman/game_logic.dart';
+import 'package:hangman/models/constants.dart';
+import 'package:hangman/views/easy_hangman_screen.dart';
+import 'package:hangman/views/game_menu_page.dart';
+import 'package:hangman/views/hard_hangman_screen.dart';
+import 'package:hangman/views/medium_hangman_screen.dart';
+import 'package:hangman/models/game_variables.dart';
 
 class DifficultyLevelDeciderPage extends StatelessWidget {
   const DifficultyLevelDeciderPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Row( 
+      floatingActionButton: Row(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -46,7 +47,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
           Material(
               elevation: 5,
               borderRadius: BorderRadius.circular(30),
-              color: Colors.green.shade700,
+              color: colour12,
               child: MaterialButton(
                   padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                   minWidth: MediaQuery.of(context).size.width,
@@ -65,14 +66,15 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                   child: const Text("EASY",
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                          fontFamily: 'Philosopher',
                           fontSize: 30,
-                          color: Colors.black,
+                          color: colour3,
                           fontWeight: FontWeight.bold)))),
           const SizedBox(height: 50),
           Material(
             elevation: 5,
             borderRadius: BorderRadius.circular(30),
-            color: Colors.orange.shade400,
+            color: colour10,
             child: MaterialButton(
               padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
               minWidth: MediaQuery.of(context).size.width,
@@ -92,8 +94,9 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                 "MEDIUM",
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'Philosopher',
                   fontSize: 30,
-                  color: Colors.black,
+                  color: colour3,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -103,7 +106,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
           Material(
             elevation: 5,
             borderRadius: BorderRadius.circular(30),
-            color: Colors.red.shade900,
+            color: colour13,
             child: MaterialButton(
               padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
               minWidth: MediaQuery.of(context).size.width,
@@ -123,8 +126,9 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                 "HARD",
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'Philosopher',
                   fontSize: 30,
-                  color: Colors.black,
+                  color: colour3,
                   fontWeight: FontWeight.bold,
                 ),
               ),

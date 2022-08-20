@@ -1,11 +1,11 @@
 //Game Screen For Easy Mode
-//There is a test part in this file only for test as you don't know the word(Choosen randomly)
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hangman/score_showcase_page.dart';
-import 'package:hangman/game_logic.dart';
+import 'package:hangman/models/constants.dart';
+import 'package:hangman/views/score_showcase_page.dart';
+import 'package:hangman/models/game_variables.dart';
 
 class EasyHangmanScreen extends StatefulWidget {
   const EasyHangmanScreen(
@@ -159,139 +159,166 @@ class _EasyHangmanScreenState extends State<EasyHangmanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.teal.shade900,
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            hangman,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/main_game_background.jpg',
+          ),
+          fit: BoxFit.cover,
+          opacity: 0.3,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Center(
+            //Print 'HANGMAN' which is lifeline of the round
+            child: Text(
+              hangman,
+              style: const TextStyle(
+                fontFamily: 'Philosopher',
+                color: Colors.red,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ),
         ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "W O R D    T Y P E",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-              color: Colors.amberAccent,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(
+              height: 20,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            wordType,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-              color: Colors.tealAccent,
+            //Print 'Word Type'
+            const Text(
+              "W O R D    T Y P E",
+              style: TextStyle(
+                fontFamily: 'Philosopher',
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+                color: colour10,
+              ),
+              textAlign: TextAlign.center,
             ),
-          ),
-          const SizedBox(
-            height: 35,
-          ),
-          Text(
-            wordToGuess,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 45,
+            const SizedBox(
+              height: 20,
             ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          SizedBox(
-            width: double.infinity,
-            height: 180.0,
-            child: GridView.count(
-              crossAxisCount: 10,
-              mainAxisSpacing: 6.0,
-              crossAxisSpacing: 6.0,
-              padding: const EdgeInsets.all(6.0),
-              children: alphabets.map(
-                (e) {
-                  return RawMaterialButton(
+            //Print the type of the actual word which is chosen randomly
+            Text(
+              wordType,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'Philosopher',
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+                color: Colors.tealAccent,
+              ),
+            ),
+            const SizedBox(
+              height: 35,
+            ),
+            //Print blank spaces for guessing the word
+            Text(
+              wordToGuess,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'Philosopher',
+                fontWeight: FontWeight.bold,
+                fontSize: 50,
+                color: colour2,
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            //Creating the keypad
+            SizedBox(
+              width: double.infinity,
+              height: 180.0,
+              child: GridView.count(
+                crossAxisCount: 10,
+                mainAxisSpacing: 6.0,
+                crossAxisSpacing: 6.0,
+                padding: const EdgeInsets.all(6.0),
+                children: alphabets.map(
+                  (e) {
+                    return RawMaterialButton(
                       onPressed: () {
                         fillGaps(e);
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(60.0),
                       ),
+                      //Keypad buttons' style
                       child: Text(
                         e,
                         style: const TextStyle(
-                            color: Colors.white, fontSize: 30.0),
+                          fontFamily: 'Philosopher',
+                          fontWeight: FontWeight.bold,
+                          color: colour3,
+                          fontSize: 30.0,
+                        ),
                       ),
-                      fillColor: Colors.grey.shade900);
-                },
-              ).toList(),
+                      fillColor: colour2,
+                    );
+                  },
+                ).toList(),
+              ),
             ),
-          ),
-          if ((wordToGuess.length) == (originalWord.length + spaceCount))
-            RawMaterialButton(
+            const SizedBox(
+              height: 100,
+            ),
+            if ((wordToGuess.length) == (originalWord.length + spaceCount))
+              RawMaterialButton(
                 onPressed: setNextWord,
+                //Next button
                 child: const Text(
                   'Next',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontFamily: 'Philosopher',
+                    fontSize: 15,
+                    color: colour13,
                   ),
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                fillColor: Colors.lightBlue),
-          if (hangmanCount == 7)
-            RawMaterialButton(
-              onPressed: () async {
-                int highScoreEasy = await getHighscore();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ScoreShowcasePage(
-                        score: scoreEasy, highScore: highScoreEasy),
+                fillColor: Colors.white,
+              ),
+            if (hangmanCount == 7)
+              RawMaterialButton(
+                onPressed: () async {
+                  int highScoreEasy = await getHighscore();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ScoreShowcasePage(
+                          score: scoreEasy, highScore: highScoreEasy),
+                    ),
+                  );
+                },
+                //Game Over Button
+                child: const Text(
+                  'Game Over',
+                  style: TextStyle(
+                    fontFamily: 'Philosopher',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.black,
                   ),
-                );
-              },
-              child: const Text(
-                'Game Over',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                fillColor: colour13,
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              fillColor: Colors.red.shade900,
-            ),
-
-          //Only For Test
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            originalWord,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-          //End Test
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -302,7 +329,6 @@ class _EasyHangmanScreenState extends State<EasyHangmanScreen> {
         .collection('users')
         .where('Email', isEqualTo: user.email)
         .get();
-
     final doc = query.docs.first.data();
     final int highScoreEasy = doc['Easy High Score'];
     if (highScoreEasy < scoreEasy) {
