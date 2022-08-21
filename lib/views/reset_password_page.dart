@@ -1,7 +1,7 @@
 //Reset Password Screen Layout
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hangman/models/constants.dart';
 
@@ -22,7 +22,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: colour3,
       //Appbar
       appBar: AppBar(
         backgroundColor: colour1,

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hangman/models/constants.dart';
 import 'package:hangman/views/game_menu_page.dart';
 
 class ScoreShowcasePage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/score_background.jpg',
+            'assets/backgrounds/score_showcase.jpg',
           ),
           fit: BoxFit.cover,
           opacity: 0.3,
@@ -51,7 +52,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
               "Back To Menu",
               style: TextStyle(
                 fontFamily: 'Philosopher',
-                fontSize: 20,
+                fontSize: 25,
                 color: Colors.cyan,
                 fontWeight: FontWeight.bold,
               ),
@@ -69,6 +70,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
                 fontFamily: 'Philosopher',
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
+                color: colour2,
               ),
             ),
             const SizedBox(
@@ -79,6 +81,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
+                color: colour11,
               ),
             ),
             const SizedBox(
@@ -89,6 +92,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
+                color: colour2,
               ),
             ),
             const SizedBox(
@@ -99,6 +103,7 @@ class _ScoreShowcasePageState extends State<ScoreShowcasePage> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
+                color: colour12,
               ),
             ),
           ]),

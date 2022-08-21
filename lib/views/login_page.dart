@@ -142,7 +142,7 @@ class _LogInState extends State<LogInPage> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/LogInScreenBackground.jpg',
+            'assets/backgrounds/log_in.jpg',
           ),
           fit: BoxFit.cover,
           opacity: 0.5,
@@ -186,11 +186,13 @@ class _LogInState extends State<LogInPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    const SizedBox(height: 100,),
+                    const SizedBox(
+                      height: 100,
+                    ),
                     SizedBox(
                       height: 200,
                       child: Image.asset(
-                        "assets/logo_for_login_page.png",
+                        "assets/logos/log_in_sign_up.png",
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -232,7 +234,7 @@ class _LogInState extends State<LogInPage> {
                         ),
                       ],
                     ),
-                    //Login And Signup Button Set
+                    //Login And Create Account Button Set
                     const SizedBox(
                       height: 25,
                     ),

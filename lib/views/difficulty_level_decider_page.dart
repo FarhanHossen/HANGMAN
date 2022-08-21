@@ -38,7 +38,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: colour3,
       body: Column(
         children: <Widget>[
           const SizedBox(
@@ -68,7 +68,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: 'Philosopher',
                           fontSize: 30,
-                          color: colour3,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold)))),
           const SizedBox(height: 50),
           Material(
@@ -96,7 +96,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Philosopher',
                   fontSize: 30,
-                  color: colour3,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -128,7 +128,7 @@ class DifficultyLevelDeciderPage extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Philosopher',
                   fontSize: 30,
-                  color: colour3,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),

@@ -1,14 +1,14 @@
 //Sign Up Screen Layout
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hangman/controllers/auth_controller.dart';
 import 'package:hangman/models/constants.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hangman/views/login_page.dart';
 import 'package:hangman/models/users.dart';
+import 'package:hangman/views/login_page.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -293,7 +293,7 @@ class _SignUpState extends State<SignUpPage> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/signup_background.jpg',
+            'assets/backgrounds/sign_up.jpg',
           ),
           fit: BoxFit.cover,
           opacity: 0.5,
@@ -329,7 +329,7 @@ class _SignUpState extends State<SignUpPage> {
                     SizedBox(
                       height: 200,
                       child: Image.asset(
-                        "assets/logo_for_signup_page.png",
+                        "assets/logos/log_in_sign_up.png",
                         fit: BoxFit.contain,
                       ),
                     ),

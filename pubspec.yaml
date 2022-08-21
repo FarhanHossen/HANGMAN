@@ -71,14 +71,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/logo_for_login_page.png
-    - assets/logo_for_signup_page.png
-    - assets/home_screen_background.jpg
-    - assets/LogInScreenBackground.jpg
-    - assets/signup_background.jpg
-    - assets/game_menu_page_background.jpg
-    - assets/main_game_background.jpg
-    - assets/score_background.jpg
+    - assets/backgrounds/log_in.jpg
+    - assets/backgrounds/sign_up.jpg
+    - assets/backgrounds/game_menu.jpg
+    - assets/backgrounds/home.png
+    - assets/logos/log_in_sign_up.png
+    - assets/backgrounds/main_game.jpg
+    - assets/backgrounds/score_showcase.jpg
 
   fonts:
     - family: Philosopher

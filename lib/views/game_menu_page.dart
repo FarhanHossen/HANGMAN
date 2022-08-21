@@ -2,14 +2,16 @@
 
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hangman/controllers/check_users_login_activity.dart';
 import 'package:hangman/models/constants.dart';
+import 'package:hangman/models/users.dart';
 import 'package:hangman/views/difficulty_level_decider_page.dart';
 import 'package:hangman/views/home_screen_page.dart';
-import 'package:hangman/models/users.dart';
-import 'package:hangman/controllers/check_users_login_activity.dart';
+import 'package:hangman/views/ranking_level_decider_page.dart';
+import 'package:hangman/views/ranking_page.dart';
 import 'package:hangman/views/user_profile_page.dart';
 
 class GameMenuPage extends StatefulWidget {
@@ -22,6 +24,8 @@ class GameMenuPage extends StatefulWidget {
 class _GameMenuState extends State<GameMenuPage> {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+  //Get List of Information of User
   Future<Users> getUser() async {
     final User user = auth.currentUser!;
     final query = await firebaseFirestore
@@ -33,13 +37,61 @@ class _GameMenuState extends State<GameMenuPage> {
     return profile;
   }
 
+  //Get list of Users
+  Future<List<Users>> getUsers() async {
+    final query = await firebaseFirestore
+        .collection('users')
+        .orderBy('User Name', descending: false)
+        .get();
+    final List<Users> users = query.docs.map((doc) {
+      return Users.fromFirestore(doc.data());
+    }).toList();
+    return users;
+  }
+
+  //Get list of Users for Ranking(Easy)
+  Future<List<Users>> getUserScoreEasy() async {
+    final query = await firebaseFirestore
+        .collection('users')
+        .orderBy('Easy High Score', descending: true)
+        .get();
+    final List<Users> users = query.docs.map((doc) {
+      return Users.fromFirestore(doc.data());
+    }).toList();
+    return users;
+  }
+
+  //Get list of Users for Ranking(Medium)
+  Future<List<Users>> getUserScoreMedium() async {
+    final query = await firebaseFirestore
+        .collection('users')
+        .orderBy('Medium High Score', descending: true)
+        .get();
+    final List<Users> users = query.docs.map((doc) {
+      return Users.fromFirestore(doc.data());
+    }).toList();
+    return users;
+  }
+
+  //Get list of Users for Ranking(Hard)
+  Future<List<Users>> getUserScoreHard() async {
+    final query = await firebaseFirestore
+        .collection('users')
+        .orderBy('Hard High Score', descending: true)
+        .get();
+    final List<Users> users = query.docs.map((doc) {
+      return Users.fromFirestore(doc.data());
+    }).toList();
+    return users;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/game_menu_page_background.jpg',
+            'assets/backgrounds/game_menu.jpg',
           ),
           fit: BoxFit.cover,
           opacity: 0.4,
@@ -104,6 +156,48 @@ class _GameMenuState extends State<GameMenuPage> {
                         ),
                         child: const Text(
                           "PLAY",
+                          style: TextStyle(
+                            fontFamily: 'Philosopher',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              //Ranking Option
+              GestureDetector(
+                onTap: () {
+                  Fluttertoast.showToast(msg: "Let's Check");
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const RankingLevelDeciderPage(),
+                    ),
+                  );
+                },
+                child: Card(
+                  color: Colors.transparent,
+                  elevation: 0,
+                  child: Stack(
+                    children: <Widget>[
+                      const Center(
+                        child: Icon(
+                          Icons.score,
+                          size: 100,
+                          color: colour14,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 170,
+                          left: 75,
+                        ),
+                        child: const Text(
+                          "Ranking",
                           style: TextStyle(
                             fontFamily: 'Philosopher',
                             fontWeight: FontWeight.bold,

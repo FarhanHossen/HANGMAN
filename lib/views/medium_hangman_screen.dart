@@ -163,7 +163,7 @@ class _MediumHangmanScreenState extends State<MediumHangmanScreen> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/main_game_background.jpg',
+            'assets/backgrounds/main_game.jpg',
           ),
           fit: BoxFit.cover,
           opacity: 0.3,
@@ -172,6 +172,7 @@ class _MediumHangmanScreenState extends State<MediumHangmanScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.transparent,
           title: Center(
             //Print 'HANGMAN' which is lifeline of the round
@@ -278,7 +279,7 @@ class _MediumHangmanScreenState extends State<MediumHangmanScreen> {
                   style: TextStyle(
                     fontFamily: 'Philosopher',
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 25,
                     color: colour13,
                   ),
                 ),
@@ -305,8 +306,8 @@ class _MediumHangmanScreenState extends State<MediumHangmanScreen> {
                   style: TextStyle(
                     fontFamily: 'Philosopher',
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black,
+                    fontSize: 17,
+                    color: Colors.white,
                   ),
                 ),
                 shape: RoundedRectangleBorder(

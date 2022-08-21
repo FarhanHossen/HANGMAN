@@ -1,8 +1,8 @@
 //The Main Class From Where The App Starts
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:hangman/controllers/check_users_login_activity.dart';
 
 Future<void> main() async {
@@ -23,7 +23,6 @@ class Hangman extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'Hangman',
       theme: ThemeData(
