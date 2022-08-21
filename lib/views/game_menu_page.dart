@@ -11,7 +11,6 @@ import 'package:hangman/models/users.dart';
 import 'package:hangman/views/difficulty_level_decider_page.dart';
 import 'package:hangman/views/home_screen_page.dart';
 import 'package:hangman/views/ranking_level_decider_page.dart';
-import 'package:hangman/views/ranking_page.dart';
 import 'package:hangman/views/user_profile_page.dart';
 
 class GameMenuPage extends StatefulWidget {
